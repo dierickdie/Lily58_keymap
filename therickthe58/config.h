@@ -28,16 +28,30 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define MASTER_RIGHT
 // #define EE_HANDS
 
-// #define SSD1306OLED
+#define SSD1306OLED
 
-// #define USE_SERIAL_PD2
+#define USE_SERIAL_PD2
 
-#define IGNORE_MOD_TAP_INTERRUPT
+#define ENCODERS_PAD_A { F5 }
+#define ENCODERS_PAD_B { F4 }
 
-// #define TAPPING_FORCE_HOLD
-//#define TAPPING_TERM 200
+#define ENCODER_RESOLUTION 4
 
-// #define ENCODERS_PAD_A { F4 }
-// #define ENCODERS_PAD_B { F5 }
+#define TAPPING_FORCE_HOLD
+#define TAPPING_TERM 100
 
-// #define ENCODER_RESOLUTION 4
+#undef RGBLED_NUM
+#define RGBLIGHT_ANIMATIONS
+#define RGBLED_NUM 27
+#define RGBLIGHT_LIMIT_VAL 120
+#define RGBLIGHT_HUE_STEP 10
+#define RGBLIGHT_SAT_STEP 17
+#define RGBLIGHT_VAL_STEP 17
+
+// Underglow
+/*
+#undef RGBLED_NUM
+#define RGBLED_NUM 14    // Number of LEDs
+#define RGBLIGHT_ANIMATIONS
+#define RGBLIGHT_SLEEP
+*/

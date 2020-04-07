@@ -1,5 +1,5 @@
-//#include "lily58.h"
-#include "sofle.h"
+#include "lily58.h"
+//#include "sofle.h"
 //#include QMK_KEYBOARD_H
 
 // Layers
@@ -172,7 +172,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define GUI_SLS		  LGUI_T(KC_SLSH)
 #define GUI_BS		  LGUI_T(KC_BSPC)
 #define GUI_MPLY    LGUI_T(KC_MPLY)
-#define GUI_SPC     LGUI_T(KC_SPC)
 
 #define SFT_S 		  SFT_T(KC_S)
 #define SFT_X		    SFT_T(KC_X)
@@ -214,7 +213,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |-----------+-----------+-----------+-----------+-----------+-----------| Encoder 0 |      | Encoder 1 |-----------+-----------+-----------+-----------+-----------+-----------|
  * |   Shift   |     Z     |     X     |     C     |     V     |     B     |-----------'      '-----------|     N     |     M     |     ,     |     .     |     /     |   Enter   |
  * '-----------------------------------------------------------------------'-----------.      .-----------'-----------------------------------------------------------------------'
- *                               |   Ctrl    |    Alt    |   GUI    |     /    BS     /        \   Space   \      |   Space   |    Alt    |   Ctrl    |
+ *                               |   Ctrl    |    Alt    |   GUI    |     /    BS     /        \   Space   \      |    Lwr     |    Alt    |   Ctrl   |
  *                               '----------------------------------'    '-----------'          '-----------'     '-----------------------------------'
  */
 
@@ -223,16 +222,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,                                       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       KC_DEL,    \
     FN_TAB,     KC_A,       KC_S,       KC_D,       GUI_F,      KC_G,                                       KC_H,       GUI_J,      KC_K,       KC_L,       KC_SCLN,    SFT_QUOT,  \
     KC_LSFT,    GUI_Z,      SFT_X,      KC_C,       KC_V,       KC_B,       KC_MPLY,             KC_MPLY,   KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_SLSH,    SFT_ENT,   \
-                      _______,    KC_LCTRL,    KC_LALT,   GUI_BS,         LWR_BS,                   RSE_SPC,        KC_SPC,       KC_RALT,    KC_RCTRL,    _______    \
+                                  KC_LCTRL,    KC_LALT,   KC_LGUI,        LWR_BS,                   RSE_SPC,        MO(1),       KC_RALT,    KC_RCTRL    \
 ),
 
 /* LOWER
  * .-----------------------------------------------------------------------.                              .-----------------------------------------------------------------------.
  * |           |           |           |           |           |    ***    |                              |           |           |     =     |     =     |     /     |     *     |
  * |-----------+-----------+-----------+-----------+-----------+-----------|                              |-----------+-----------+-----------+-----------+-----------+-----------|
- * |           |     (     |     )     |     -     |     =     |    ***    |                              |           |    BS     |     7     |     8     |     9     |     -     |
+ * |           |     (     |     )     |     -     |     =     |    ***    |                              |           |           |     7     |     8     |     9     |     -     |
  * |-----------+-----------+-----------+-----------+-----------+-----------|                              |-----------+-----------+-----------+-----------+-----------+-----------|
- * |   LWL0    |   Home    |   PgDn    |    PgUp   |    End    |    ***    |-----------.      .-----------|           |    BS     |     4     |     5     |     6     |     +     |
+ * |   LWL0    |   Home    |   PgDn    |    PgUp   |    End    |    ***    |-----------.      .-----------|           |           |     4     |     5     |     6     |     +     |
  * |-----------+-----------+-----------+-----------+-----------+-----------|           |      |           |-----------+-----------+-----------+-----------+-----------+-----------|
  * |           |   Left    |   Down    |    Up     |   Right   |    ***    |-----------'      '-----------|           |   Space   |     1     |     2     |     3     |    Enter  |
  * '-----------------------------------------------------------------------'-----------.      .-----------'-----------------------------------------------------------------------'
@@ -242,10 +241,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
  [_LOWER] = LAYOUT( \
     _______,    _______,    _______,    _______,    _______,    KC_NO,                                      _______,    _______,     KC_EQL,    KC_EQL,     KC_PSLS,    KC_PAST,   \
-    _______,    TD(LBKTS),  TD(RBKTS),  KC_MINS,    KC_EQL,     KC_NO,                                      _______,    KC_BSPC,     KC_P7,     KC_P8,      KC_P9,      KC_PMNS,   \
-    LWL0_TAB,   KC_HOME,    KC_PGDN,    KC_PGUP,    LWL1_END,   KC_NO,                                      _______,    KC_BSPC,     KC_P4,     KC_P5,      KC_P6,      KC_PPLS,   \
-    _______,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RIGHT,   KC_NO,      _______,           _______,     _______,    KC_SPC,      KC_P1,     KC_P2,      KC_P3,      KC_PENT,   \
-                      _______,    _______,    _______,    _______,         _______,              _______,         LWL0_P0,       KC_P0,        KC_PDOT,    _______   \
+    _______,    TD(LBKTS),  TD(RBKTS),  KC_MINS,    KC_EQL,     KC_NO,                                      _______,    _______,     KC_P7,     KC_P8,      KC_P9,      KC_PMNS,   \
+    LWL0_TAB,   KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     KC_NO,                                      _______,    _______,     KC_P4,     KC_P5,      KC_P6,      KC_PPLS,   \
+    _______,    KC_LEFT,    KC_DOWN,    KC_UP,      LWL1_RGHT,  KC_NO,      _______,           _______,     _______,    KC_SPC,      KC_P1,     KC_P2,      KC_P3,      KC_PENT,   \
+                                  _______,    _______,    _______,         _______,              _______,         LWL0_P0,       KC_P0,        KC_PDOT   \
   ),
 
   /* LWL0
@@ -267,7 +266,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______,    _______,    _______,    _______,    _______,    _______,                                    _______,    _______,    KC_BSPC,    KC_PSLS,    KC_PAST,    KC_DEL,   \
       _______,    KC_LGUI,    KC_LSFT,    KC_LALT,    KC_DEL,     _______,                                    _______,    _______,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RIGHT, \
       _______,    _______,    _______,    _______,    _______,    _______,    _______,           _______,     _______,    _______,    KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,   \
-                        _______,    _______,    _______,    _______,         _______,              TG(1),             _______,    _______,    _______,    _______    \
+                                    _______,    _______,    _______,         _______,              TG(1),             _______,    _______,    _______    \
     ),
 
   /* LWL1
@@ -289,7 +288,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       RESET,      _______,    _______,    _______,    _______,    _______,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
       _______,    _______,    _______,    _______,    _______,    _______,                                    _______,    _______,    KC_DLR,     KC_COMM,    KC_PERC,    _______,   \
       _______,    _______,    _______,    _______,    _______,    _______,    _______,           _______,     _______,    _______,    KC_EXLM,    _______,    _______,    _______,   \
-                        _______,    _______,    _______,    _______,         _______,              _______,           _______,    _______,    _______,    _______    \
+                                    _______,    _______,    _______,         _______,              _______,           _______,    _______,    _______    \
   ),
 
 /* RAISE
@@ -310,8 +309,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TD(TILDE),  _______,    _______,    _______,    _______,    _______,                                    _______,    _______,    KC_LBRC,    KC_LBRC,    TD(PIPE),   _______,   \
     _______,    _______,    _______,    _______,    _______,    _______,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
     _______,    _______,    _______,    _______,    _______,    _______,                                    MAKE,       GUI_LEFT,   ALT_DN,     ALT_UP,     GUI_RGHT,   _______,   \
-    KC_CAPS,    _______,    _______,    _______,    _______,    _______,    _______,           _______,     TG(1),      KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     _______,   \
-                      _______,    _______,    _______,    _______,         _______,              _______,         _______,    _______,    _______,    _______    \
+    SFT_CAPS,   _______,    _______,    _______,    _______,    _______,    _______,           _______,     TG(1),      KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     _______,   \
+                                  _______,    _______,    _______,         _______,              _______,         _______,    _______,    _______  \
 ),
 
 /* FN
@@ -333,7 +332,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,    _______,    _______,    _______,    _______,    _______,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
     _______,    KC_LGUI,    KC_LSFT,    KC_LALT,    KC_DEL,     _______,                                    _______,    CTL_LEFT,   KC_DOWN,    KC_UP,      CTL_RGHT,   KC_ENT,    \
     _______,    _______,    _______,    _______,    _______,    _______,    _______,           _______,     _______,    KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     _______,   \
-                      _______,    _______,    _______,    _______,         _______,              _______,           _______,    _______,    _______,    _______   \
+                                  _______,    _______,    _______,         _______,              _______,           _______,    _______,    _______   \
 ),
 
 };
@@ -344,7 +343,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case MAKE:
       if (record->event.pressed) {
         // when keycode is pressed
-        SEND_STRING("make sofle:therickthe:dfu");
+        SEND_STRING("make lily58:therickthe58:dfu");
       } else {
         // when keycode is released
       }
@@ -389,17 +388,18 @@ void encoder_update_user(uint8_t index, bool clockwise) {
   else if (index == 1) {
     switch(biton32(layer_state)){
       case 0: // Default layer
-      if (clockwise) { // Horizontal Scroll
-        tap_code(KC_MS_WH_RIGHT);
-      } else {
-        tap_code(KC_MS_WH_LEFT);
-      }
-
-      case 1: // Lower layer
-      if (clockwise) { // Volume
+      if (clockwise){ // Volume
         tap_code(KC_VOLD);
       } else {
         tap_code(KC_VOLU);
+      }
+      break;
+
+      case 2: // Raise layer
+      if (clockwise) { // Volume
+        tap_code(KC_VOLU);
+      } else {
+        tap_code(KC_VOLD);
       }
       break;
 
@@ -452,7 +452,7 @@ void email_reset (qk_tap_dance_state_t *state, void *user_data) {
 //*************** EMAIL *******************//
 
 //*************** BRACKETS *******************//
-//Left brackets 
+//Left brackets
 void lbkts_finished (qk_tap_dance_state_t *state, void *user_data) {
   lbkts_state.state = cur_dance(state); //Use the dance that favors being held
   switch (lbkts_state.state) {
@@ -553,7 +553,7 @@ void iota_gfx_task_user(void) {
  * |           |           |           |           |           |           |-----------'      '-----------|           |           |           |           |           |           |
  * '-----------------------------------------------------------------------'-----------.       .----------'-----------------------------------------------------------------------'
  *                               |           |           |          |     /           /         \           \    |           |           |           |
- *                               '----------------------------------'    '-----------'           '-----------'   '-----------------------------------'
+ *                               '----------------------------------'    '-----------'           '-----------'    '-----------------------------------'
  */
 
  /*[_LAYER] = LAYOUT( \
@@ -561,6 +561,6 @@ void iota_gfx_task_user(void) {
     _______,    _______,    _______,    _______,    _______,    _______,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
     _______,    _______,    _______,    _______,    _______,    _______,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
     _______,    _______,    _______,    _______,    _______,    _______,    _______,           _______,     _______,    _______,    _______,    _______,    _______,    _______,   \
-                      _______,    _______,    _______,    _______,         _______,              _______,           _______,    _______,    _______,    _______ \
+                                  _______,    _______,    _______,         _______,              _______,           _______,    _______,    _______ \
 ), 
 */
