@@ -37,11 +37,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_GAME] = LAYOUT( \
-    KC_ESC,     KC_1,       KC_2,       KC_3,       KC_4,       KC_5,                 \
-    FN2_TAB,    KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,                 \
-    KC_LCTRL,   KC_A,       KC_S,       KC_D,       KC_F,       KC_G,                 \
-    KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,                 \
-                      _______,    KC_LCTRL,    KC_LALT,   KC_SPC,         BS_BSPC     \
+    KC_ESC,     KC_1,       KC_2,       KC_3,       KC_4,       KC_5,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
+    FN_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
+    KC_LCTRL,   KC_A,       KC_S,       KC_D,       KC_F,       KC_G,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
+    KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,    _______,            _______,    _______,    _______,    _______,    _______,    _______,    _______,   \
+                      _______,    KC_LCTRL,    KC_LALT,   KC_SPC,      KC_BSPC,                _______,           _______,    _______,    _______,    _______                   \
 ), 
 
 /* FN
@@ -59,11 +59,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_FN] = LAYOUT( \
-    _______,    KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,                 \
-    _______,    _______,    MAKE,       _______,    RESET,      _______,               \
-    _______,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RIGHT,   _______,               \
-    _______,    _______,    _______,    _______,    _______,    _______,    _______,   \
-                      _______,    _______,    _______,    KC_ENT,          _______,    \
+    _______,    KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
+    _______,    _______,    MAKE,       _______,    RESET,      _______,                                  _______,    _______,    _______,    _______,    _______,    _______,   \
+    _______,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RIGHT,   _______,                                  _______,    _______,    _______,    _______,    _______,    _______,   \
+    _______,    _______,    _______,    _______,    _______,    _______,    _______,          _______,    _______,    _______,    _______,    _______,    _______,    _______,   \
+                      _______,    _______,    _______,    KC_ENT,          _______,             _______,           _______,    _______,    _______,    _______                   \
 ),
 
 };
@@ -74,7 +74,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case MAKE:
       if (record->event.pressed) {
         // when keycode is pressed
-        SEND_STRING("make sofle:game:dfu");
+        SEND_STRING("make sofle:gaming:dfu");
       } else {
         // when keycode is released
       }
@@ -99,7 +99,7 @@ void encoder_update_user(uint8_t index, bool clockwise) {
 
     }
   }
-
+}
 #endif
 
 /* 
