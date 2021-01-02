@@ -123,6 +123,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 // Readability keycodes
 #define _______		  KC_TRNS
+#define xxxxxxx     KC_TRNS
 
 // Layer codes
 #define LOWER 		  MO(_LOWER)
@@ -201,9 +202,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 #define HPR_SPC     HYPR_T(KC_SPC)
 
-// macOS specific stuff
-#define NOTIFCENT   HYPR(KC_M)  // Open notification center
-
 #define SA_BS 		  MT(MOD_LSFT | MOD_LALT, KC_BSPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -227,7 +225,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     FN2_ESC,    KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,                                       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       KC_DEL,    \
     FN_TAB,     KC_A,       KC_S,       KC_D,       GUI_F,      KC_G,                                       KC_H,       GUI_J,      KC_K,       KC_L,       KC_SCLN,    SFT_QUOT,  \
     KC_LSFT,    GUI_Z,      SFT_X,      KC_C,       KC_V,       KC_B,       KC_MPLY,             KC_MPLY,   KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_SLSH,    SFT_ENT,   \
-                      _______,    KC_LCTRL,    KC_LALT,   GUI_BS,         LWR_BS,                   RSE_SPC,        KC_SPC,       KC_RALT,    KC_RCTRL,    _______    \
+                      xxxxxxx,    KC_LCTRL,    KC_LALT,   GUI_BS,         LWR_BS,                   RSE_SPC,        KC_SPC,       KC_RALT,    KC_RCTRL,    xxxxxxx                 \
 ),
 
 /* LOWER
@@ -249,7 +247,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,    TD(LBKTS),  TD(RBKTS),  KC_MINS,    KC_EQL,     KC_NO,                                      _______,    KC_BSPC,     KC_P7,     KC_P8,      KC_P9,      KC_PPLS,   \
     LWL0_TAB,   KC_HOME,    KC_PGDN,    KC_PGUP,    LWL1_END,   KC_NO,                                      _______,    KC_BSPC,     KC_P4,     KC_P5,      KC_P6,      KC_PPLS,   \
     _______,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RIGHT,   KC_NO,      _______,           _______,     _______,    KC_SPC,      KC_P1,     KC_P2,      KC_P3,      KC_PENT,   \
-                      _______,    _______,    _______,    _______,         _______,              _______,         LWL0_P0,       KC_P0,        KC_PDOT,    _______   \
+                      xxxxxxx,    _______,    _______,    _______,         _______,              _______,         LWL0_P0,       KC_P0,        KC_PDOT,    xxxxxxx                 \
   ),
 
   /* LWL0
@@ -271,7 +269,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______,    _______,    _______,    _______,    _______,    _______,                                    _______,    _______,    KC_BSPC,    KC_PSLS,    KC_PAST,    KC_DEL,   \
       _______,    KC_LGUI,    KC_LSFT,    KC_LALT,    KC_DEL,     _______,                                    _______,    _______,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RIGHT, \
       _______,    _______,    _______,    _______,    _______,    _______,    _______,           _______,     _______,    _______,    KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,   \
-                        _______,    _______,    _______,    _______,         _______,              TG(1),             _______,    _______,    _______,    _______    \
+                        xxxxxxx,    _______,    _______,    _______,         _______,              TG(1),             _______,    _______,    _______,    xxxxxxx                   \
     ),
 
   /* LWL1
@@ -293,7 +291,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       RESET,      _______,    _______,    _______,    _______,    _______,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
       _______,    _______,    _______,    _______,    _______,    _______,                                    _______,    _______,    KC_DLR,     KC_COMM,    KC_PERC,    _______,   \
       _______,    _______,    _______,    _______,    _______,    _______,    _______,           _______,     _______,    _______,    KC_EXLM,    _______,    _______,    _______,   \
-                        _______,    _______,    _______,    _______,         _______,              _______,           _______,    _______,    _______,    _______    \
+                        xxxxxxx,    _______,    _______,    _______,         _______,              _______,           _______,    _______,    _______,    xxxxxxx                    \
   ),
 
 /* RAISE
@@ -315,12 +313,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,    _______,    _______,    _______,    _______,    _______,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
     _______,    _______,    _______,    _______,    _______,    _______,                                    MAKE,       GUI_LEFT,   ALT_DN,     ALT_UP,     GUI_RGHT,   _______,   \
     KC_CAPS,    _______,    _______,    _______,    _______,    _______,    _______,           _______,     TG(1),      KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     _______,   \
-                      _______,    _______,    _______,    _______,         _______,              _______,         _______,    _______,    _______,    _______    \
+                      xxxxxxx,    _______,    _______,    _______,         _______,              _______,         _______,    _______,    _______,    xxxxxxx                      \
 ),
 
 /* FN
  * .-----------------------------------------------------------------------.                              .-----------------------------------------------------------------------.
- * |    F1     |    F2     |    F3     |    F4     |    F5     |    F6     |                              |    F7     |    F8     |    F9     |   F10     |   F11     |    F12    |
+ * |           |    F1     |    F2     |    F3     |    F4     |    F5     |                              |    F6     |    F7     |    F8     |    F9     |   F10     |           |
  * |-----------+-----------+-----------+-----------+-----------+-----------|                              |-----------+-----------+-----------+-----------+-----------+-----------|
  * |           |           |           |           |           |           |                              |           |           |           |           |           |           |
  * |-----------+-----------+-----------+-----------+-----------+-----------|                              |-----------+-----------+-----------+-----------+-----------+-----------|
@@ -328,16 +326,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |-----------+-----------+-----------+-----------+-----------+-----------| HorScroll |      |           |-----------+-----------+-----------+-----------+-----------+-----------|
  * |           |           |           |           |   Enter   |           |-----------'      '-----------|           |   Home    |   Pg Dn   |   Pg Up   |    End    |           |
  * '-----------------------------------------------------------------------'-----------.      .-----------'-----------------------------------------------------------------------'
- *                               |           |           |          |     /           /        \           \     |           |           |           |
+ *                               |           |           |          |     /           /        \           \     |           |   F11     |    F12    |
  *                               '----------------------------------'    '-----------'          '-----------'    '-----------------------------------'
  */
 
  [_FN] = LAYOUT( \
-    KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,                                      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,    \
+    _______,    KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,                                      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     _______,   \
     _______,    _______,    _______,    _______,    _______,    _______,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
     _______,    KC_LGUI,    KC_LSFT,    KC_LALT,    KC_DEL,     _______,                                    _______,    CTL_LEFT,   KC_DOWN,    KC_UP,      CTL_RGHT,   KC_ENT,    \
     _______,    _______,    _______,    _______,    _______,    _______,    _______,           _______,     _______,    KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     _______,   \
-                      _______,    _______,    _______,    _______,         _______,              _______,           _______,    _______,    _______,    _______   \
+                      xxxxxxx,    _______,    _______,    _______,         _______,              _______,           _______,    KC_F11,     KC_F12,     xxxxxxx                    \
 ),
 
 /* GAME
@@ -359,7 +357,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     FN2_TAB,    KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,                                       _______,    _______,    _______,    _______,    _______,    _______,   \
     KC_LCTRL,   KC_A,       KC_S,       KC_D,       KC_F,       KC_G,                                       _______,    _______,    _______,    _______,    _______,    _______,   \
     KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,       _______,           _______,     _______,    _______,    _______,    _______,    _______,    _______,   \
-                      _______,    KC_LCTRL,    KC_LALT,   KC_SPC,         KC_BSPC,               _______,           _______,    _______,    _______,    _______ \
+                      xxxxxxx,    KC_LCTRL,    KC_LALT,   KC_SPC,         KC_BSPC,               _______,           _______,    _______,    _______,    xxxxxxx                    \
 ), 
 
 /* FN2
@@ -381,7 +379,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,    _______,    MAKE,       _______,    RESET,      _______,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
     _______,    _______,    _______,    _______,    _______,    TG(6),                                      _______,    CTL_LEFT,   KC_DOWN,    KC_UP,      CTL_RGHT,   KC_ENT,    \
     _______,    _______,    _______,    _______,    _______,    _______,    _______,           _______,     _______,    KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     _______,   \
-                      _______,    _______,    _______,    KC_ENT,          KC_ENT,               _______,           _______,    _______,    _______,    _______   \
+                      xxxxxxx,    _______,    _______,    KC_ENT,          KC_ENT,               _______,           _______,    _______,    _______,    xxxxxxx                    \
 ),
 
 };
