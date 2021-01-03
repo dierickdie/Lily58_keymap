@@ -10,7 +10,7 @@
 #define _LWL0       4
 #define _LWL1       5
 #define _GAME       6
-// #define _FN2        7
+#define _FN2        7
 
 // Macro keycodes
   enum custom_keycodes {
@@ -131,7 +131,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define LWL0        MO(_LWL0)
 #define LWL1        MO(_LWL1)
 #define FN 		  	  MO(_FN)
-#define FN2         MO(_FN2)
+// #define FN2         MO(_FN2)
 
 #define LWR_BS 		  LT(_LOWER, KC_BSPC)
 
@@ -140,8 +140,8 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define FN_TAB		  LT(_FN, KC_TAB)
 #define FN_ESC		  LT(_FN, KC_ESC)
 
-#define FN2_ESC     LT(_FN2, KC_ESC)
-#define FN2_TAB     LT(_FN2, KC_TAB)
+// #define FN2_ESC     LT(_FN2, KC_ESC)
+// #define FN2_TAB     LT(_FN2, KC_TAB)
 
 #define LWL0_TAB	  LT(_LWL0, KC_TAB)
 #define LWL0_ESC	  LT(_LWL0, KC_ESC)
@@ -208,13 +208,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* QWERTY
  * .-----------------------------------------------------------------------.                              .-----------------------------------------------------------------------.
- * |     1     |     2     |     3     |     4     |     5     |     6     |                              |     6     |     7     |     8     |     9     |     0     |   Bspc    |
+ * |    Esc    |     1     |     2     |     3     |     4     |     5     |                              |     6     |     7     |     8     |     9     |     0     |   Bspc    |
  * |-----------+-----------+-----------+-----------+-----------+-----------|                              |-----------+-----------+-----------+-----------+-----------+-----------|
- * |  Fn2 Esc  |     Q     |     W     |     E     |     R     |     T     |                              |     Y     |     U     |     I     |     O     |     P     |    Del    |
+ * |   Fn Tab  |     Q     |     W     |     E     |     R     |     T     |                              |     Y     |     U     |     I     |     O     |     P     |    Del    |
  * |-----------+-----------+-----------+-----------+-----------+-----------|                              |-----------+-----------+-----------+-----------+-----------+-----------|
- * |  Fn Tab   |     A     |     S     |     D     |     F     |     G     |-----------.      .-----------|     H     |     J     |     K     |     L     |     ;     |    '      |
+ * |   Shift   |     A     |     S     |     D     |     F     |     G     |-----------.      .-----------|     H     |     J     |     K     |     L     |     ;     |    '      |
  * |-----------+-----------+-----------+-----------+-----------+-----------| Encoder 0 |      | Encoder 1 |-----------+-----------+-----------+-----------+-----------+-----------|
- * |   Shift   |     Z     |     X     |     C     |     V     |     B     |-----------'      '-----------|     N     |     M     |     ,     |     .     |     /     |   Enter   |
+ * |   Ctrl    |     Z     |     X     |     C     |     V     |     B     |-----------'      '-----------|     N     |     M     |     ,     |     .     |     /     |   Enter   |
  * '-----------------------------------------------------------------------'-----------.      .-----------'-----------------------------------------------------------------------'
  *                               |   Ctrl    |    Alt    |   GUI    |     /    BS     /        \   Space   \      |   Space   |    Alt    |   Ctrl    |
  *                               '----------------------------------'    '-----------'          '-----------'     '-----------------------------------'
@@ -222,9 +222,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
  [_QW] = LAYOUT( \
     KC_ESC,     KC_1,       TD(EMAIL),  KC_3,       KC_4,       KC_5,                                       KC_6,       KC_7,       KC_8,       KC_9,       KC_0,       KC_BSPC,   \
-    FN2_ESC,    KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,                                       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       KC_DEL,    \
-    FN_TAB,     KC_A,       KC_S,       KC_D,       GUI_F,      KC_G,                                       KC_H,       GUI_J,      KC_K,       KC_L,       KC_SCLN,    SFT_QUOT,  \
-    KC_LSFT,    GUI_Z,      SFT_X,      KC_C,       KC_V,       KC_B,       KC_MPLY,             KC_MPLY,   KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_SLSH,    SFT_ENT,   \
+    FN_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,                                       KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       KC_DEL,    \
+    KC_LSFT,    KC_A,       KC_S,       KC_D,       GUI_F,      KC_G,                                       KC_H,       GUI_J,      KC_K,       KC_L,       KC_SCLN,    SFT_QUOT,  \
+    KC_LCTRL,   GUI_Z,      SFT_X,      KC_C,       KC_V,       KC_B,       KC_MPLY,             KC_MPLY,   KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_SLSH,    SFT_ENT,   \
                       xxxxxxx,    KC_LCTRL,    KC_LALT,   GUI_BS,         LWR_BS,                   RSE_SPC,        KC_SPC,       KC_RALT,    KC_RCTRL,    xxxxxxx                 \
 ),
 
@@ -320,9 +320,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * .-----------------------------------------------------------------------.                              .-----------------------------------------------------------------------.
  * |           |    F1     |    F2     |    F3     |    F4     |    F5     |                              |    F6     |    F7     |    F8     |    F9     |   F10     |           |
  * |-----------+-----------+-----------+-----------+-----------+-----------|                              |-----------+-----------+-----------+-----------+-----------+-----------|
- * |           |  Qwerty   |           |           |           |           |                              |           |           |           |           |           |           |
+ * |    Fn     |           |           |           |           |           |                              |           |           |           |           |           |           |
  * |-----------+-----------+-----------+-----------+-----------+-----------|                              |-----------+-----------+-----------+-----------+-----------+-----------|
- * |    Fn     |    GUI    |   Shift   |  Option   |    Del    |   Game    |-----------.      .-----------|           |   Left    |    Down   |    Up     |   Right   |   Enter   |
+ * |           |    GUI    |   Shift   |  Option   |    Del    | TG(Game)  |-----------.      .-----------|           |   Left    |    Down   |    Up     |   Right   |   Enter   |
  * |-----------+-----------+-----------+-----------+-----------+-----------| HorScroll |      |           |-----------+-----------+-----------+-----------+-----------+-----------|
  * |           |           |           |           |   Enter   |           |-----------'      '-----------|           |   Home    |   Pg Dn   |   Pg Up   |    End    |           |
  * '-----------------------------------------------------------------------'-----------.      .-----------'-----------------------------------------------------------------------'
@@ -332,7 +332,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
  [_FN] = LAYOUT( \
     _______,    KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,                                      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     _______,   \
-    _______,    TG(0),      _______,    _______,    _______,    _______,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
+    _______,    _______,    _______,    _______,    _______,    _______,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
     _______,    KC_LGUI,    KC_LSFT,    KC_LALT,    KC_DEL,     TG(6),                                      _______,    CTL_LEFT,   KC_DOWN,    KC_UP,      CTL_RGHT,   KC_ENT,    \
     _______,    _______,    _______,    _______,    _______,    _______,    _______,           _______,     _______,    KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     _______,   \
                       xxxxxxx,    _______,    _______,    _______,         _______,              _______,           _______,    KC_F11,     KC_F12,     xxxxxxx                    \
@@ -357,8 +357,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,                                    KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       KC_DEL,    \
     KC_LSFT,    KC_A,       KC_S,       KC_D,       KC_F,       KC_G,                                    KC_H,       KC_J,       KC_K,       KC_L,       KC_SCLN,    KC_QUOT,   \
     KC_LCTRL,   KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,    KC_MUTE,             KC_MPLY,   KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_SLSH,    KC_ENT,    \
-                      xxxxxxx,     MO(3),     KC_LALT,   KC_SPC,      KC_ENT,                      KC_SPC,         KC_SPC,       KC_RALT,    KC_RCTRL,    xxxxxxx                \
+                      xxxxxxx,     MO(7),     KC_LALT,   KC_SPC,      KC_ENT,                      KC_SPC,         KC_SPC,       KC_RALT,    KC_RCTRL,    xxxxxxx                \
 ), 
+
+/* FN2
+ * .-----------------------------------------------------------------------.                              .-----------------------------------------------------------------------.
+ * |           |    F1     |    F2     |    F3     |    F4     |    F5     |                              |    F6     |    F7     |    F8     |    F9     |   F10     |           |
+ * |-----------+-----------+-----------+-----------+-----------+-----------|                              |-----------+-----------+-----------+-----------+-----------+-----------|
+ * |           |           |           |           |           |           |                              |           |           |           |           |           |           |
+ * |-----------+-----------+-----------+-----------+-----------+-----------|                              |-----------+-----------+-----------+-----------+-----------+-----------|
+ * |           |           |           |           |           | TG(Game)  |-----------.      .-----------|           |   Left    |    Down   |    Up     |   Right   |   Enter   |
+ * |-----------+-----------+-----------+-----------+-----------+-----------| HorScroll |      |           |-----------+-----------+-----------+-----------+-----------+-----------|
+ * |           |           |           |           |   Enter   |           |-----------'      '-----------|           |   Home    |   Pg Dn   |   Pg Up   |    End    |           |
+ * '-----------------------------------------------------------------------'-----------.      .-----------'-----------------------------------------------------------------------'
+ *                               |    FN2    |           |          |     /           /        \           \     |           |   F11     |    F12    |
+ *                               '----------------------------------'    '-----------'          '-----------'    '-----------------------------------'
+ */
+
+ [_FN2] = LAYOUT( \
+    _______,    KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,                                      KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     _______,   \
+    _______,    _______,    _______,    _______,    _______,    _______,                                    _______,    _______,    _______,    _______,    _______,    _______,   \
+    _______,    _______,    _______,    _______,    _______,    TG(6),                                      _______,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,    _______,   \
+    _______,    _______,    _______,    _______,    _______,    _______,    _______,           _______,     _______,    KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     _______,   \
+                      xxxxxxx,    _______,    _______,    _______,         _______,              _______,           _______,    KC_F11,     KC_F12,     xxxxxxx                    \
+),
 
 };
 
@@ -384,10 +406,10 @@ void encoder_update_user(uint8_t index, bool clockwise) {
   if (index == 0) {
     switch(biton32(layer_state)){
       case 0: // Default layer
-      if (clockwise){ // Vertical scroll
-        tap_code(KC_MS_WH_DOWN);
+      if (clockwise) { // Volume
+        tap_code(KC_VOLD);
       } else {
-        tap_code(KC_MS_WH_UP);
+        tap_code(KC_VOLU);
       }
       break;
 
@@ -422,11 +444,12 @@ void encoder_update_user(uint8_t index, bool clockwise) {
   else if (index == 1) {
     switch(biton32(layer_state)){
       case 0: // Default layer
-      if (clockwise) { // Horizontal Scroll
-        tap_code(KC_MS_WH_RIGHT);
+      if (clockwise){ // Vertical scroll
+        tap_code(KC_MS_WH_DOWN);
       } else {
-        tap_code(KC_MS_WH_LEFT);
+        tap_code(KC_MS_WH_UP);
       }
+      break;
 
       case 1: // Lower layer
       if (clockwise) { // Volume
